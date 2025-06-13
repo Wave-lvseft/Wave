@@ -1,0 +1,1306 @@
+/* 全局样式 */
+:root {
+    --primary-color: #007bff; /* 更新主色为更明亮的蓝色 */
+    --accent-color: #fd7e14;  /* 引入辅助橙色 */
+    --secondary-color: #6c757d; /* 次要灰色 */
+    --light-color: #ffffff; /* 浅色背景 - 白色 */
+    --dark-color: #333333; /* 深色文本/背景 - 深灰色 */
+    --banner-bg-start: #0d203c; /* Banner 背景起始色 - 深蓝 */
+    --banner-bg-end: #1a3b6c;   /* Banner 背景结束色 - 较浅的深蓝 */
+    --font-family: 'PingFang SC', 'MiSans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --h1-font-size: 2.5rem;
+    --h2-font-size: 2rem;
+    --h3-font-size: 1.75rem;
+    --default-font-size: 1rem;
+    --container-max-width: 1200px;
+    --header-height: 80px;
+    --footer-height: 120px;
+    --card-bg: #ffffff;
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    --button-bg: var(--primary-color);
+    --button-hover-bg: #0056b3; /* 对应新主色的悬停色 */
+    --tag-bg: #e9f3ff; /* 标签背景浅蓝色 */
+    --tag-color: var(--primary-color); /* 标签文字主题蓝色 */
+    --link-color: var(--primary-color);
+    --link-hover-color: #0056b3; /* 对应新主色的悬停色 */
+    --success-color: #28a745;
+    --info-color: #17a2b8;
+    --warning-color: #ffc107;
+    --danger-color: #dc3545;
+}
+
+/* 基本样式 */
+body {
+    font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6; /* 参考网站的浅灰背景 */
+    color: var(--dark-color);
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px; /* 保持最大宽度 */
+    margin: 0 auto;
+    padding: 0 20px; /* 稍微增加内边距 */
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color); /* 使用主题绿色 */
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #005cb2; /* 链接悬停颜色 */
+    text-decoration: none; /* 通常不使用下划线 */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* 避免图片底部多余空隙 */
+}
+
+/* 按钮样式 - 参考 MarsCode 风格 */
+.btn {
+    display: inline-block;
+    padding: 8px 20px; /* 减小内边距 */
+    font-size: 14px; /* 减小字体大小 */
+    font-weight: 500;
+    border-radius: 4px; /* 更小的圆角 */
+    cursor: pointer;
+    text-align: center;
+    border: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+/* 特别为 Banner 内的按钮调整，如果需要与其他地方的按钮大小不同 */
+.banner .cta-buttons .btn {
+    padding: 8px 18px; /* 进一步微调 Banner 按钮的内边距 */
+    font-size: 14px; /* 确保 Banner 按钮的字体大小 */
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
+}
+
+.btn-primary:hover {
+    background-color: var(--button-hover-bg);
+    border-color: var(--button-hover-bg);
+}
+
+.btn-secondary {
+    background-color: #f1f3f4; /* 浅灰色背景 */
+    color: #3c4043; /* 深灰色文字 */
+    border: 1px solid #dadce0; /* 边框颜色 */
+}
+
+.btn-secondary:hover {
+    background-color: #e8eaed;
+    border-color: #c6cacc;
+}
+
+.btn-tertiary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+
+.btn-tertiary:hover {
+    background-color: rgba(26, 115, 232, 0.05);
+}
+
+/* 标签条样式 */
+.tag {
+    display: inline-block;
+    background-color: var(--tag-bg); /* 使用变量 */
+    color: var(--tag-color); /* 使用变量 */
+    padding: 6px 12px;
+    border-radius: 16px; /* 胶囊形状 */
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 15px;
+    transition: background-color 0.3s ease, color 0.3s ease; /* 添加过渡效果 */
+}
+
+.tag:hover {
+    background-color: #d0e0f8; /* 鼠标悬停时略深的背景色 (可进一步调整或使用变量派生) */
+    color: #0056b3; /* 鼠标悬停时略深的文字颜色 (可进一步调整或使用变量派生) */
+    /* 您也可以在这里使用 background-image: linear-gradient(...) 来实现更复杂的渐变效果 */
+}
+
+/* 示例：部分标签使用辅助色 */
+.tag-accent {
+    background-color: var(--accent-color);
+    color: var(--light-color);
+    border: 1px solid var(--accent-color);
+}
+
+.tag-accent:hover {
+    background-color: #e67300; /* 辅助色悬停效果 */
+    border-color: #e67300;
+}
+
+.banner .tag {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#events-banner {
+    padding-top: 120px; /* 进一步增加上内边距 */
+    padding-bottom: 120px; /* 进一步增加下内边距 */
+}
+
+/* Banner 内标题和描述文字放大 */
+#events-banner h1 {
+    font-size: 3.5rem; /* 增大主标题字体 */
+}
+
+#events-banner .banner-description {
+    font-size: 1.15rem; /* 调整副标题字体大小 */
+}
+
+/* 顶部导航栏 - 参考 MarsCode 风格 */
+.top-nav {
+    background-color: rgba(255, 255, 255, 0.85); /* 半透明白色背景 */
+    backdrop-filter: blur(10px); /* 毛玻璃效果 */
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.07); /* 导航栏阴影 */
+    padding: 12px 0; /* 调整内边距 */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.top-nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.top-nav .logo {
+    font-size: 22px; /* 调整Logo大小 */
+    font-weight: 600; /* 调整Logo字重 */
+    color: var(--primary-color); /* Logo颜色使用新的主色 */
+}
+
+.top-nav nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center; /* 垂直居中 */
+}
+
+.top-nav nav ul li {
+    margin-left: 25px; /* 调整间距 */
+}
+
+.top-nav nav ul li a {
+    color: #3c4043; /* 导航链接颜色 */
+    font-weight: 500;
+    font-size: 15px; /* 导航链接字号 */
+}
+
+.top-nav nav ul li a:hover,
+.top-nav nav ul li a:focus {
+    color: var(--primary-color); /* 鼠标悬停或聚焦时变为主题色 */
+    /* text-decoration: underline; */
+}
+
+.top-nav nav ul li a.active-nav-link {
+    color: var(--primary-color) !important; /* 当前激活的导航链接颜色 */
+    font-weight: bold; /* 可以加粗以示强调 */
+}
+
+.top-nav .auth-buttons .btn {
+    margin-left: 15px;
+    padding: 8px 18px; /* 按钮内边距调整 */
+    font-size: 15px;
+}
+
+/* 统一的板块标题标签容器样式 */
+.section-title-tag-container {
+    display: flex;
+    justify-content: center; /* 水平居中 */
+    margin-top: 40px; /* 与上方元素的间距 */
+    margin-bottom: 10px; /* 减小与下方元素的间距 */
+}
+
+/* 板块标题标签样式 */
+.section-title-tag-container .tag {
+    background-color: var(--tag-bg); /* 默认标签背景色 */
+    color: var(--tag-color); /* 默认标签文字颜色 */
+    padding: 8px 20px;
+    border-radius: 20px; /* 胶囊形状 */
+    font-size: 1rem; /* 字体大小 */
+    font-weight: 500;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.section-title-tag-container .tag:hover {
+    background-color: #d0e0f8; /* 悬停背景色 */
+    color: #0056b3; /* 悬停文字颜色 */
+}
+
+/* 高亮文本块样式 */
+.highlight-section {
+    background-color: #f0f7ff; /* 淡蓝色背景 */
+    padding: 40px 0;
+    margin-top: 40px; /* 调整与 banner 的间距 */
+    margin-bottom: 40px;
+}
+
+.highlight-block {
+    background-color: var(--light-color);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 123, 255, 0.1);
+    text-align: left;
+    border-left: 5px solid var(--primary-color);
+}
+
+.highlight-block p {
+    font-size: 1.1rem; /* 增大字体大小 */
+    line-height: 1.7;
+    color: var(--dark-color);
+    margin-bottom: 15px;
+}
+
+.highlight-block p:last-child {
+    margin-bottom: 0;
+}
+
+/* Banner区域 */
+.banner {
+    background: linear-gradient(135deg, var(--banner-bg-start) 0%, #76b8f2 100%); /* 从深到浅的渐变 */
+    color: white; /* Banner 文字白色 */
+    padding: 100px 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.banner::before { /* 添加一层遮罩使文字更清晰 */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(13, 32, 60, 0.4); /* 调整遮罩透明度以适应新的渐变 */
+}
+
+.banner .container { /* 确保内容在遮罩之上 */
+    position: relative;
+    z-index: 1;
+}
+
+.banner h1 {
+    font-size: 52px; /* 增大标题字号 */
+    font-weight: 600;
+    margin-bottom: 25px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.3); /* 文字阴影 */
+}
+
+.banner p {
+    font-size: 16px; /* 调整字体大小以适应单行显示 */
+    margin-bottom: 40px;
+    max-width: 100%; /* 允许文本占据全部可用宽度 */
+    margin-left: auto;
+    margin-right: auto;
+    white-space: normal; /* 允许文本正常换行，如果缩小字体后仍然太长 */
+}
+
+.banner .cta-buttons .btn {
+    margin: 0 12px;
+    padding: 14px 30px; /* 增大按钮内边距 */
+    font-size: 18px;
+    font-weight: 500;
+}
+
+/* 通用板块样式 - 参考 MarsCode 风格 */
+section {
+    padding: 80px 0; /* 增加上下内边距 */
+    text-align: center;
+}
+
+section h2.section-title {
+    font-size: 32px; /* 调整标题字号 */
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: #202124; /* 深灰色标题 */
+}
+
+section p.section-subtitle {
+    font-size: 18px;
+    color: #5f6368; /* 灰色副标题 */
+    max-width: 700px;
+    margin: 0 auto 50px auto; /* 调整外边距 */
+    line-height: 1.8;
+}
+
+.section-header {
+    display: flex;
+    flex-direction: column; /* 整体垂直排列 */
+    align-items: center; /* 整体水平居中 */
+    margin-bottom: 40px;
+    position: relative; /* 为按钮绝对定位做准备 */
+    text-align: center; /* 确保内部文本也居中 */
+}
+
+.section-header .tag {
+    background-color: var(--tag-bg);
+    color: var(--tag-color);
+    padding: 5px 15px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-bottom: 10px;
+    border: 1px solid var(--tag-color); /* 边框用标签文字颜色，确保一致性 */
+}
+
+.section-header h2 {
+    margin-bottom: 20px; /* 标题和查看更多按钮之间的间距 */
+}
+
+.section-header .header-content {
+    display: flex;
+    flex-direction: column; 
+    align-items: center; 
+    /* flex-grow: 1; 移除，因为父级已经是column布局，不需要这个来居中 */
+    text-align: center; 
+}
+
+.section-header .tag {
+    margin-bottom: 10px; /* 调整标签和标题之间的间距 */
+    margin-right: 0; /* 移除右边距，因为已经是列布局 */
+}
+
+.section-header h2 {
+    font-size: 28px; /* 调整字号 */
+    font-weight: 600;
+    color: #202124;
+    margin-bottom: 0;
+    /* flex-grow: 1;  移除，因为父元素已经是flex-grow:1 */
+}
+
+.btn-view-more {
+    font-size: 16px;
+    color: var(--primary-color);
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+    position: absolute; 
+    top: 10px; /* 稍微向下调整，避免与顶部太近 */
+    right: 10px; /* 稍微向左调整，避免与右侧太近 */
+}
+
+.btn-view-more:hover {
+    background-color: rgba(0, 123, 255, 0.05); /* 使用新主色的RGBA */
+    text-decoration: none;
+}
+
+/* 卡片通用样式 - 参考 MarsCode 风格 */
+.cards {
+    display: flex;
+    /* justify-content: space-around; */ /* 改为 flex-start 或 center 配合 gap */
+    justify-content: flex-start; /* 从左开始排列 */
+    gap: 24px; /* 统一卡片间距 */
+    margin-bottom: 40px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: #fff;
+    padding: 24px; /* 调整内边距 */
+    border-radius: 8px; /* 圆角 */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.1); /* 更精致的阴影 */
+    text-align: left; /* 卡片内容左对齐 */
+    flex-basis: calc(33.333% - 16px); /* (100% - 2*gap) / 3 */
+    min-width: 280px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08), 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.card h3 {
+    font-size: 20px; /* 调整卡片标题字号 */
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: #202124;
+}
+
+.card p {
+    font-size: 15px;
+    color: #5f6368;
+    line-height: 1.7;
+}
+
+/* 校园心智板块 */
+.campus-mindset .cards {
+    justify-content: space-between; /* 卡片并排 */
+    align-items: flex-start; /* 确保卡片顶部对齐 */
+    flex-wrap: nowrap; /* 强制不换行 */
+    gap: 20px; /* 调整间距 */
+}
+
+.campus-mindset .cards .card {
+    text-align: left; /* 心智卡片内容居左 */
+    flex-basis: calc(33.333% - 14px); /* (100% - 2*gap) / 3, gap = 20px -> 13.33px, round to 14px */
+    min-width: 200px; /* 设置一个最小宽度，防止过度压缩 */
+    flex-grow: 0; /* 防止卡片过度扩展 */
+    flex-shrink: 1; /* 允许卡片收缩 */
+}
+
+.campus-mindset .card i { /* 假设心智卡片使用图标 */
+    font-size: 32px;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+    display: block;
+}
+
+.campus-mindset .card-icon {
+    margin-bottom: 15px; /* 图标和标题之间的间距 */
+}
+
+.campus-mindset .card-icon i {
+    font-size: 36px; /* 图标大小 */
+    color: #007bff; /* 图标颜色 */
+}
+
+.campus-mindset .card h3 {
+    /* Specific styles for h3 in campus mindset cards can be added here */
+}
+
+.vision-section {
+    display: flex;
+    align-items: center;
+    gap: 50px; /* 增加间距 */
+    text-align: left;
+    margin-top: 70px;
+    background-color: #fff; /* 背景设为白色 */
+    padding: 60px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.vision-text {
+    flex: 1.2; /* 文本区域稍宽 */
+}
+
+.vision-text h3 {
+    font-size: 26px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #202124;
+}
+
+.vision-text p {
+    font-size: 16px;
+    color: #5f6368;
+    line-height: 1.8;
+}
+
+.vision-features {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.feature-item {
+    background-color: #f8f9fa; /* 更浅的背景 */
+    padding: 18px 20px;
+    border-radius: 6px;
+    font-size: 17px;
+    font-weight: 500;
+    color: #3c4043; /* 保持卡片内文字颜色 */
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-left-color 0.3s ease; /* 移除 color 过渡 */
+    border-left: 3px solid transparent; /* 左侧边框用于悬停效果 */
+}
+
+.feature-item-link {
+    text-decoration: none; /* 移除链接下划线 */
+    color: inherit; /* 继承父元素颜色，避免默认的链接蓝色 */
+    display: block; /* 使链接占据整个宽度 */
+}
+
+.feature-item-link:hover .feature-item {
+    background-color: #e8f0fe; /* 可以考虑使用 var(--tag-bg) 或其派生色 */
+    border-left-color: var(--primary-color); /* 使用新的主色 */
+}
+
+/* 确保 feature-item 内的文本颜色在链接悬停时不受影响 */
+.feature-item-link:hover .feature-item,
+.feature-item-link:hover .feature-item p {
+    color: #3c4043; /* 保持原始文本颜色 */
+}
+
+.feature-item-link:hover .feature-item .feature-item-desc {
+    color: #6c757d; /* 保持描述文本的灰色 */
+}
+
+.feature-item:hover {
+    background-color: #e8f0fe; /* 可以考虑使用 var(--tag-bg) 或其派生色 */
+    /* color: var(--primary-color); /* 移除此行，颜色由 feature-item-link 控制 */
+    border-left-color: var(--primary-color); /* 使用新的主色 */
+}
+
+.feature-item-desc {
+    font-size: 0.85em; /* 较小的字号 */
+    color: #6c757d;    /* 灰色 */
+    margin-top: 5px;   /* 与上方链接的间距 */
+    line-height: 1.4;  /* 调整行高以确保单行文本的视觉效果 */
+    max-width: 100%; /* 确保文字在一行内，并根据需要换行 */
+    overflow: hidden; /* 隐藏超出部分 */
+    text-overflow: ellipsis; /* 超出部分显示省略号 */
+    white-space: nowrap; /* 强制不换行，如果希望自动换行则移除此行 */
+}
+
+/* 活动板块 - 参考 MarsCode 风格 */
+.events-section .event-cards {
+    display: flex;
+    /* justify-content: space-between; */
+    justify-content: flex-start; /* Reverted to flex-start */
+    gap: 24px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.event-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px; /* 增加卡片之间的垂直间距 */
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    width: calc(33.333% - 20px); /* 每行显示三个卡片，并考虑间距 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* 添加过渡效果 */
+}
+
+.event-card:hover {
+    transform: translateY(-5px); /* 鼠标悬浮时向上移动 */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* 鼠标悬浮时增强阴影 */
+}
+
+/* For an 8-card layout in 3 columns, this centers the last two cards (7th and 8th). */
+/* It applies a left margin to the 7th card (which must also be the 2nd to last card overall). */
+/* The margin value is calculated as (width_of_one_card_slot + one_gap_value) / 2. */
+.events-section .event-cards .event-card:nth-child(7):nth-last-child(2) {
+    margin-left: calc(100%/6 + 2px); /* ( (100%/3 - 20px) + 24px ) / 2 = 100%/6 + 2px */
+}
+
+.event-card img {
+    width: 100%;
+    height: 180px; /* 调整图片高度 */
+    object-fit: cover;
+}
+
+.event-info {
+    padding: 15px;
+    text-align: left; /* 确保文本内容左对齐 */
+    flex-grow: 1; /* 让 event-info 占据剩余空间 */
+    display: flex;
+    flex-direction: column;
+}
+
+.event-info h4 {
+    font-size: 1.2em;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    color: #333;
+    text-align: left; /* 标题左对齐 */
+}
+
+.event-info p {
+    font-size: 0.9em;
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 15px; /* 增加段落和按钮之间的间距 */
+    flex-grow: 1; /* 让描述占据更多空间，将按钮推到底部 */
+    text-align: left; /* 简介左对齐 */
+}
+
+.event-card .event-info .tag,
+.large-event-card .large-event-card-info .tag {
+    background-color: #007bff;
+    color: white;
+    padding: 3px 8px;
+    border-radius: 4px;
+    font-size: 0.8em;
+    display: inline-block; /* 让标签只占据内容宽度 */
+    margin-bottom: 10px;
+    align-self: flex-start; /* 标签左对齐 */
+}
+
+.event-info .btn {
+    margin-top: auto; /* 将按钮推到卡片底部 */
+    align-self: center; /* 按钮居中对齐 */
+}
+
+.section-footer-text {
+    font-size: 17px; /* 调整字号 */
+    color: #5f6368;
+    margin-bottom: 30px;
+}
+
+.events-section .cta-buttons .btn,
+.partners-section .cta-buttons .btn,
+.certification-section .cta-buttons .btn {
+    margin: 0 10px;
+}
+
+/* 活动页面特定样式 */
+
+/* 大型活动卡片区域 */
+.large-events-section {
+    padding-top: 20px !important; /* 调整上方内边距，并确保覆盖行内样式 */
+    padding-bottom: 40px !important; /* 下方内边距，并确保覆盖行内样式 */
+}
+.large-events-section .large-event-cards-container {
+    display: flex;
+    flex-direction: column; /* 确保卡片纵向排列 */
+    gap: 30px; /* 卡片之间的间距 */
+    margin-top: 20px; /* 调整与上方标签条的间距 */
+}
+
+.large-event-card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: var(--card-shadow);
+    display: flex;
+    flex-direction: column; /* 卡片内部内容也是纵向排列 */
+    overflow: hidden; /* 防止内容溢出 */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.large-event-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.large-event-card-images {
+    display: flex;
+    gap: 10px; /* 图片之间的间距 */
+    padding: 20px; /* 图片容器的内边距 */
+    background-color: #f9f9f9; /* 图片区域背景色，可选 */
+}
+
+.large-event-card-images img {
+    width: calc(50% - 5px); /* 每张图片占据一半宽度，减去gap的一半 */
+    height: auto;
+    object-fit: cover; /* 保持图片比例并填充 */
+    border-radius: 6px; /* 图片圆角 */
+}
+
+.large-event-card-info {
+    padding: 10px 20px 20px 20px; /* 调整上内边距为10px，其他保持20px */
+    text-align: center; /* 容器内文本居中 */
+}
+
+.large-event-card-title {
+    font-size: 1.25rem; /* 减小字体大小 */
+    color: var(--dark-color);
+    margin-bottom: 0; /* 移除底部外边距，因为没有其他元素了 */
+}
+
+/* 优秀伙伴板块 - 参考 MarsCode 风格 */
+.partners-section .partner-cards {
+    display: flex;
+    justify-content: space-between; /* 卡片平均分布 */
+    gap: 20px; /* 调整卡片间距 */
+    flex-wrap: nowrap; /* 强制卡片在同一行 */
+    overflow-x: auto; /* 如果卡片过多，允许水平滚动 */
+    padding-bottom: 20px; /* 为可能的滚动条留出空间 */
+}
+
+/* 移除旧的 partner-contribution 样式，因为我们将采用类似 certification-info-bar 的方式 */
+/* .partner-card .partner-contribution { ... } */
+/* .partner-card:hover .partner-contribution { ... } */
+
+/* 新增一个全局的伙伴贡献信息栏，类似角色认证信息栏 */
+.partner-contribution-bar {
+    background-color: #f0f0f0; /* 浅灰色背景 */
+    color: var(--dark-color);
+    padding: 15px 20px;
+    text-align: center;
+    border-radius: 4px;
+    margin-top: 30px; /* 与卡片区域的间距 */
+    font-size: 0.95rem;
+    min-height: 50px; /* 保证一定高度 */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.partner-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.1);
+    padding: 20px;
+    text-align: center;
+    flex-basis: calc(25% - 18px); /* (100% - 3*gap) / 4 */
+    min-width: 200px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* 调整过渡效果 */
+}
+
+.partner-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.partner-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08), 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.partner-card img {
+    width: 80px; /* 调整Logo大小 */
+    height: 80px;
+    border-radius: 50%;
+    object-fit: contain; /* 确保Logo完整显示 */
+    margin: 0 auto 15px auto; /* 水平居中 */
+}
+
+.partner-card {
+    text-align: center; /* 文字居中 */
+}
+
+.partner-card h4 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+    color: var(--text-color-dark);
+}
+
+.partner-name {
+    font-size: 1.4em; /* 稍大字体 */
+    font-weight: bold; /* 加粗 */
+}
+
+.partner-role {
+    color: #007bff; /* 蓝色 */
+}
+
+.partner-title,
+.partner-affiliation {
+    color: #333333 !important; /* 深灰色 */
+}
+
+.partner-card p {
+    font-size: 14px;
+    color: #1a73e8;
+    font-weight: 500;
+    margin-bottom: 10px; /* 为贡献说明留出空间 */
+}
+
+.partner-card .partner-contribution {
+    font-size: 13px;
+    color: #5f6368;
+    line-height: 1.5;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    display: none; /* 默认隐藏 */
+    text-align: left;
+}
+
+.partner-card:hover .partner-contribution {
+    display: block; /* 悬停时显示 */
+}
+
+/* 角色认证板块 - 参考 MarsCode 风格 */
+.certification-section .tag {
+    display: block; /* 让标签独占一行以便居中 */
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+}
+.certification-section h2 {
+    text-align: center; /* 标题居中 */
+    margin-bottom: 30px;
+}
+.certification-cards {
+    display: flex;
+    justify-content: center; /* 卡片居中排列 */
+    flex-wrap: nowrap; /* 不允许换行 */
+    gap: 20px; /* 卡片间距 */
+    margin-bottom: 20px;
+}
+
+.certification-section .certification-cards .certification-card:nth-child(n+5) {
+    /* 从第5张卡片开始，应用新的grid布局，使其在下一行显示，并居中 */
+}
+
+/* 为下三张卡片创建一个新的容器或调整现有逻辑以实现3张居中，这里用grid-column简化处理，但可能需要JS或更复杂的CSS */
+.certification-section .certification-cards-row2 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    width: 75%; /* (3/4) * 100% */
+    margin: 20px auto 0; /* 上方间距，并水平居中 */
+}
+
+.certification-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.1);
+    padding: 20px;
+    text-align: center;
+    flex-basis: calc(20% - 19.2px); /* (100% - 4*gap) / 5, gap = 24px -> 19.2px */
+    min-width: 180px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; /* 调整过渡效果 */
+    display: flex; /* 使用flex布局 */
+    flex-direction: column; /* 垂直排列 */
+    justify-content: center; /* 垂直居中 */
+    align-items: center; /* 水平居中 */
+    height: 120px; /* 固定高度 */
+}
+
+.certification-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.08), 0 8px 20px rgba(0,0,0,0.12);
+}
+
+.certification-card img {
+    width: 100%;
+    max-height: 120px; /* 调整图片高度 */
+    object-fit: contain;
+    margin-bottom: 12px;
+}
+
+.certification-card p {
+    font-size: 15px; /* 调整字号 */
+    color: #3c4043;
+    font-weight: 500;
+}
+
+.certification-info-bar {
+    background-color: #f1f3f4; /* 浅灰色背景 */
+    padding: 20px;
+    border-radius: 8px; /* 圆角 */
+    margin-top: 30px; /* 与上方卡片间距 */
+    margin-bottom: 40px;
+    font-size: 16px;
+    color: #3c4043;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+
+/* 页脚 - 参考 MarsCode 风格 */
+footer {
+    background-color: #0a192f; /* 页脚深蓝背景，参考风格 */
+    color: #a8b2d1; /* 页脚文字浅蓝色，参考风格 */
+    text-align: center;
+    padding: 40px 20px; /* 增加内边距 */
+    min-height: var(--footer-height);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: auto;
+}
+
+.footer .container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 180px;
+}
+
+.footer-col h4 {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    color: #e8eaed; /* 页脚标题颜色 */
+}
+
+.footer-col p,
+.footer-col ul li {
+    margin-bottom: 12px;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer-col ul li a {
+    color: #bdc1c6;
+    transition: color 0.3s ease;
+}
+
+.footer-col ul li a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer-bottom {
+    border-top: 1px solid #3c4043; /* 分割线颜色 */
+    padding-top: 30px;
+    margin-top: 40px;
+    text-align: center;
+    font-size: 13px;
+    color: #9aa0a6; /* 版权信息颜色 */
+}
+
+/* 知识库分类导航 */
+.categories-nav {
+    padding: 20px 0;
+    background-color: #f8f9fa; /* Light grey background for the section */
+    margin-top: 30px; /* Add margin to move it down */
+}
+
+.category-tabs {
+    display: flex;
+    justify-content: center;
+    background-color: #e9ecef; /* Slightly darker grey for the tab container */
+    border-radius: 8px;
+    padding: 8px;
+    max-width: 500px; /* Limit the width of the tab container */
+    margin: 0 auto; /* Center the tab container */
+}
+
+.tab-item {
+    background-color: transparent;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 16px;
+    color: #495057; /* Dark grey text color */
+    border-radius: 6px;
+    margin: 0 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.tab-item i {
+    margin-right: 8px;
+}
+
+.tab-item:hover {
+    background-color: #dee2e6; /* Lighter grey on hover */
+}
+
+.category-tabs .tab-item.active {
+    background-color: var(--primary-color);
+    color: #fff;
+    border-bottom-color: var(--primary-color); /* 或者透明 */
+}
+
+/* 二级导航栏样式 */
+.secondary-nav-tabs {
+    display: flex; /* 水平排列 */
+    justify-content: space-around; /* 均匀分布，确保在同一行 */
+    margin-top: 20px;
+    padding: 15px;
+    background-color: transparent; /* 背景透明，类似优秀伙伴区域 */
+    border-radius: var(--border-radius-medium); /* 使用中等圆角 */
+    gap: 15px; /* 卡片间距 */
+}
+
+.tab-item-secondary {
+    flex-grow: 1; /* 让每个项目占据可用空间 */
+    text-align: center;
+    padding: 15px 10px;
+    font-size: 0.9em;
+    color: var(--text-color-dark);
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: var(--border-radius-small); /* 较小的圆角，类似卡片 */
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.tab-item-secondary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    background-color: var(--secondary-color-extralight); /* 更淡的悬停背景色 */
+    color: var(--primary-color);
+}
+
+.tab-item-secondary.active {
+    background-color: var(--primary-color);
+    color: #fff;
+    border-color: var(--primary-color);
+    box-shadow: 0 3px 6px rgba(0,0,0,0.08);
+    transform: translateY(0);
+}
+
+/* 技术文章卡片容器 */
+#tech-article-cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); /* 响应式网格布局，最小宽度320px */
+    gap: 25px; /* 卡片之间的间距 */
+    padding: 20px 0; /* 上下内边距 */
+}
+
+/* 新的详细技术文章卡片样式 */
+.tech-article-card-detailed {
+    background-color: #fff; /* 确保背景色为白色 */
+    border: 1px solid #e0e0e0; /* 边框颜色稍深一点，或者考虑移除 */
+    border-radius: 10px; /* 圆角稍大一些 */
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* 阴影更柔和弥散 */
+    display: flex;
+    flex-direction: column;
+    text-align: left; /* 改为左对齐 */
+    transition: box-shadow 0.3s ease, transform 0.3s ease; /* 添加transform过渡 */
+}
+
+.tech-article-card-detailed:hover {
+    box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+    transform: translateY(-3px); /* 悬停时轻微上浮 */
+}
+
+.tech-article-card-detailed h3 {
+    font-size: 1.7em; /* 稍微减小标题字号 */
+    color: #2A5F9E; /* 再次加深蓝色 */
+    font-weight: 600; /* 标题字重 */
+    margin-bottom: 10px;
+    text-align: left; /* 确保标题左对齐 */
+    white-space: nowrap; /* 确保标题在一行内 */
+    overflow: hidden; /* 隐藏超出部分 */
+    text-overflow: ellipsis; /* 超出部分显示省略号 */
+}
+
+.tech-article-card-detailed .description {
+    font-size: 0.9em;
+    color: #666; /* 描述文字颜色稍浅 */
+    margin-bottom: 18px;
+    line-height: 1.7;
+    flex-grow: 1; 
+    text-align: left; /* 确保描述左对齐 */
+}
+
+.tech-article-card-detailed .meta-info {
+    display: flex;
+    align-items: center;
+    font-size: 0.8em; /* 元信息字号稍小 */
+    color: #888; /* 元信息颜色更浅 */
+    margin-bottom: 18px;
+    justify-content: flex-start; /* 确保作者信息靠左 */
+    width: 100%; /* 确保meta-info容器宽度为100% */
+}
+
+.tech-article-card-detailed .meta-info .author {
+    text-align: left; /* 确保作者信息左对齐 */
+}
+
+
+.tech-article-card-detailed .tags-container {
+    display: none; /* 移除标签容器 */
+}
+
+.tech-article-card-detailed .tag {
+    padding: 6px 12px;
+    border-radius: 16px;
+    background-color: #f0f0f0; /* 标签背景色调整 */
+    color: #555; /* 标签文字颜色调整 */
+    font-size: 0.75em; /* 标签字号稍小 */
+    margin-right: 0;
+    margin-bottom: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.tech-article-card-detailed .tag:hover {
+    background-color: var(--primary-color-light); /* 标签悬停背景色 */
+    color: var(--primary-color);
+}
+
+.tech-article-card-detailed .btn-read-full {
+    padding: 10px 20px; /* 按钮内边距增大 */
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 6px; /* 按钮圆角调整 */
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    font-weight: 500; /* 按钮文字加粗 */
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.tech-article-card-detailed .btn-read-full:hover {
+    background-color: var(--primary-color-dark); /* 按钮悬停颜色加深 */
+    transform: scale(1.03); /* 按钮悬停轻微放大 */
+}
+
+/* Ensure the rest of the button properties are present if they were there before */
+.tech-article-card-detailed .btn-read-full {
+    cursor: pointer;
+    text-decoration: none;
+    display: block; /* 改为block以使其可以居中 */
+    margin-left: auto; /* 与 margin-right: auto; 配合实现居中 */
+    margin-right: auto;
+    width: fit-content; /* 让按钮宽度自适应内容 */
+    /* margin-top: auto; */ /* 确保按钮在卡片底部，如果卡片内容高度不一致 */
+    /* align-self: flex-start; */ /* 移除左对齐 */
+    cursor: pointer;
+    text-decoration: none;
+    display: block; /* 改为block以使其可以居中 */
+    margin-left: auto; /* 与 margin-right: auto; 配合实现居中 */
+    margin-right: auto;
+    width: fit-content; /* 让按钮宽度自适应内容 */
+    /* margin-top: auto; */ /* 确保按钮在卡片底部，如果卡片内容高度不一致 */
+    /* align-self: flex-start; */ /* 移除左对齐 */
+}
+
+.tech-article-card-detailed .btn-read-full:hover {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .top-nav .container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .top-nav nav ul {
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .top-nav nav ul li {
+        margin-left: 0;
+        margin-bottom: 10px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .top-nav .auth-buttons {
+        width: 100%;
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .banner h1 {
+        font-size: 36px;
+    }
+
+    .banner p {
+        font-size: 14px;
+    }
+
+    .cards {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        flex-basis: 100%;
+        max-width: 400px;
+    }
+
+    .campus-mindset .cards {
+        flex-wrap: wrap; /* 允许换行 */
+    }
+
+    .campus-mindset .cards .card {
+        flex-basis: calc(50% - 10px); /* 在较小屏幕上每行显示两个 */
+    }
+
+    .vision-section {
+        flex-direction: column;
+        padding: 30px;
+    }
+
+    .event-card {
+        flex-basis: calc(50% - 12px);
+    }
+
+    .partner-card {
+        flex-basis: calc(50% - 12px);
+    }
+
+    .certification-cards {
+        flex-wrap: wrap; /* 允许换行 */
+        justify-content: center;
+    }
+
+    .certification-card {
+        flex-basis: calc(50% - 10px); /* 在较小屏幕上每行显示两个 */
+        min-width: auto; /* 移除最小宽度限制 */
+    }
+
+    .footer .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer .footer-col {
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .banner h1 {
+        font-size: 28px;
+    }
+
+    .banner .cta-buttons .btn {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+    .campus-mindset .cards .card {
+        flex-basis: 100%; /* 在更小屏幕上每行显示一个 */
+    }
+
+    .event-card {
+        flex-basis: 100%;
+    }
+
+    .partner-card {
+        flex-basis: 100%;
+    }
+
+    .certification-card {
+        flex-basis: 100%; /* 在更小屏幕上每行显示一个 */
+    }
+}
+
+.footer-description {
+    font-size: 0.9em; /* 或者其他你认为合适的大小 */
+}
+
+/* 底部导航 */
+.footer nav ul li a.active-nav-link,
+.footer .footer-col ul li a.active-nav-link {
+    color: var(--primary-color) !important;
+    font-weight: bold;
+}
