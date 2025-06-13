@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>知识库 - Trae 校园</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <header class="top-nav">
+        <div class="container">
+            <div class="logo">Trae 校园</div>
+            <nav>
+                <ul>
+                    <li><a href="index.html#home">首页</a></li>
+                    <li><a href="events.html">活动</a></li>
+                    <li><a href="knowledge_base.html" class="active-nav-link">知识库</a></li>
+                    <li><a href="partners.html">优秀伙伴</a></li>
+                    <li><a href="https://live.juejin.cn/5982/5435112" target="_blank">直播</a></li>
+                </ul>
+            </nav>
+            <div class="auth-buttons">
+                <button class="btn btn-primary" data-action="openLink" data-href="https://www.trae.com.cn/login" data-target="_blank">注册 Trae 账号</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Banner 主视觉 -->
+    <section id="knowledge-banner" class="banner">
+        <div class="container">
+            <div class="tag">Trae 校园</div>
+            <h1>Trae 校园知识库</h1>
+            <p class="banner-description">浏览我们丰富的学习资源和技术文章，提升您的技术能力，开拓视野</p>
+            <div class="cta-buttons">
+                <button class="btn btn-primary" data-action="openLink" data-href="https://www.trae.com.cn/login" data-target="_blank">注册 Trae 账号</button>
+                <button class="btn btn-secondary" data-action="openLink" data-href="#submit-resource">我要投稿（跳转投稿表）</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 知识库分类导航 -->
+    <section id="knowledge-categories" class="categories-nav">
+        <div class="container">
+            <div class="category-tabs">
+                <button class="tab-item active" data-category="blog"><i class="fas fa-book"></i> 技术博客</button>
+                <button class="tab-item" data-category="tutorials"><i class="fas fa-chalkboard-teacher"></i> 教程</button>
+                <button class="tab-item" data-category="partners"><i class="fas fa-users"></i> 共创伙伴</button>
+            </div>
+            <!-- 技术博客描述 -->
+            <p class="tech-blog-description" style="text-align: center; margin-top: 40px; margin-bottom: 30px; font-size: 1em; color: #555; display: block;">探索 Trae 平台的强大功能，学习如何利用 Trae 技术解决实际问题，这里汇集了各类 Trae 协作开发案例与技术实践分享。</p>
+            <!-- 教程描述 -->
+            <p class="tutorials-description" style="text-align: center; margin-top: 40px; margin-bottom: 30px; font-size: 1em; color: #555; display: none;">从入门到精通，我们的教程系列将带你一步步掌握 Trae 平台的各项核心功能与应用技巧，助你快速成长为技术达人。</p>
+            <!-- 共创伙伴描述 -->
+            <p class="partners-description" style="text-align: center; margin-top: 40px; margin-bottom: 30px; font-size: 1em; color: #555; display: none;">这里汇聚了众多乐于分享的 Trae 校园技术达人，他们通过技术博客、实战教程等形式，将知识与经验传递给更多人。让我们一睹他们的风采！</p>
+            <!-- 二级导航栏 -->
+            <div class="secondary-nav-tabs" id="blog-sub-categories" style="display: none;">
+                <button class="tab-item-secondary" data-subcategory="data-analysis">数据分析及可视化</button>
+                <button class="tab-item-secondary" data-subcategory="game-dev">游戏开发实践</button>
+                <button class="tab-item-secondary" data-subcategory="text-analysis">文本分析与基础挖掘实践</button>
+                <button class="tab-item-secondary" data-subcategory="lite-app-dev">实用轻量应用开发实践</button>
+                <button class="tab-item-secondary" data-subcategory="mini-program-dev">小程序开发实践</button>
+                <button class="tab-item-secondary" data-subcategory="math-modeling">数学建模比赛实践</button>
+                <button class="tab-item-secondary" data-subcategory="mcp-practice">玩转MCP实践</button>
+            </div>
+            <!-- 技术文章卡片容器 -->
+            <div id="tech-article-cards-container" style="display: none; margin-top: 20px;">
+                <!-- 卡片内容将由JS动态填充或预置 -->
+                <div class="tech-article-card" data-category="data-analysis">
+                    <div class="article-info">
+                        <h4>Kaggle 天气数据可视化</h4>
+                        <p class="article-intro">用 Kaggle 的天气数据集绘制气温趋势折线图与月降雨天数柱状组合图</p>
+                        <p class="article-author">作者：湖南大学陈俊希</p>
+                        <a href="https://lcnziv86vkx6.feishu.cn/wiki/I0WfwW10miq0bck0iiucaBQMnog" target="_blank" class="btn btn-tertiary">阅读全文</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部导航 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-col">
+                <h4>Trae 校园</h4>
+                <p class="footer-description">连接校园技术爱好者，共建技术社区生态。</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="index.html#home">首页</a></li>
+                    <li><a href="events.html">活动</a></li>
+                    <li><a href="knowledge_base.html" class="active-nav-link">知识库</a></li>
+                    <li><a href="partners.html">优秀伙伴</a></li>
+                    <li><a href="https://live.juejin.cn/5982/5435112" target="_blank">直播</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>社区资源</h4>
+                <ul>
+                    <li><a href="#">技术博客</a></li>
+                    <li><a href="#">学习资源</a></li>
+                    <li><a href="#">常见问题</a></li>
+                    <li><a href="#">关于我们</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系我们</h4>
+                <p>邮箱：campus@trae.ai</p>
+                <p>微信公众号：TraeAI</p>
+                <p>工作时间：周一至周五 9:00-18:00</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabs = document.querySelectorAll('.category-tabs .tab-item');
+            const techBlogDescription = document.querySelector('.tech-blog-description');
+            const tutorialsDescription = document.querySelector('.tutorials-description');
+            const partnersDescription = document.querySelector('.partners-description');
+            const blogSubCategories = document.getElementById('blog-sub-categories');
+            const techArticleCardsContainer = document.getElementById('tech-article-cards-container');
+
+            tabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // 移除所有选项卡的激活状态
+                    tabs.forEach(t => t.classList.remove('active'));
+                    // 激活当前点击的选项卡
+                    this.classList.add('active');
+
+                    const category = this.dataset.category;
+
+                    // 根据分类显示/隐藏描述和内容区域
+                    if (category === 'blog') {
+                        if(techBlogDescription) techBlogDescription.style.display = 'block';
+                        if(tutorialsDescription) tutorialsDescription.style.display = 'none';
+                        if(partnersDescription) partnersDescription.style.display = 'none';
+                        if(blogSubCategories) blogSubCategories.style.display = 'flex'; // 或者 'block'，取决于你的布局需求
+                        if(techArticleCardsContainer) techArticleCardsContainer.style.display = 'grid'; // 或者 'block'
+                    } else if (category === 'tutorials') {
+                        if(techBlogDescription) techBlogDescription.style.display = 'none';
+                        if(tutorialsDescription) tutorialsDescription.style.display = 'block';
+                        if(partnersDescription) partnersDescription.style.display = 'none';
+                        if(blogSubCategories) blogSubCategories.style.display = 'none';
+                        if(techArticleCardsContainer) techArticleCardsContainer.style.display = 'none'; // 假设教程内容不同
+                        // 这里可以添加显示教程内容的逻辑
+                    } else if (category === 'partners') {
+                        if(techBlogDescription) techBlogDescription.style.display = 'none';
+                        if(tutorialsDescription) tutorialsDescription.style.display = 'none';
+                        if(partnersDescription) partnersDescription.style.display = 'block';
+                        if(blogSubCategories) blogSubCategories.style.display = 'none';
+                        if(techArticleCardsContainer) techArticleCardsContainer.style.display = 'none'; // 假设共创伙伴内容不同
+                        // 这里可以添加显示共创伙伴内容的逻辑
+                    }
+                });
+            });
+
+            // 初始化时，根据默认激活的选项卡显示对应内容
+            const activeTab = document.querySelector('.category-tabs .tab-item.active');
+            if (activeTab) {
+                activeTab.click(); // 模拟点击以触发内容显示逻辑
+            }
+        });
+    </script>
+</body>
+</html>
